@@ -1,0 +1,22 @@
+{
+  "name": "beto-is-hot",
+  "version": "1.0.0",
+  "description": "Nodejs twitter bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\" Error: No test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiracp/beto-is-hot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiracp/beto-is-hot/issues"
+  },
+  "homepage": "https://github.com/kiracp/beto-is-hot#readme",
+  "dependencies": {
+    "twitter": "^1.7.1"
+  }
+}

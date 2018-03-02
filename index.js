@@ -7,32 +7,39 @@ var bot = new Twitter(config);
 
 // Params
 var params = {
-  q: "how hot Beto O’Rourke is",
+  q: "beto o'rourke is hot",
   result_type: "mixed",
+  multi:true,
   lang: 'en'
 }
 
+// DO tha dam thing
 function get_the_tweets() {
   bot.get('search/tweets', params, function (err, data, response) {
     if (!err) {
       for (var i=0;i<data.statuses.length;i++){
+        // Logging 
         console.log(data.statuses[i].text);
+        var tweet_id = data.statuses[i].id_str;
 
-        var id = data.statuses[i].id_str;
-        console.log(id);
+        // Favorite the tweets
+        bot.post('favorites/create', { id: tweet_id }, function(err, response){
+          if(err){
+            console.log(err[0].message);
+          }
+          else{
+            console.log("favorited");
+          }
+        });
 
-        bot.post('statuses/retweet/'+ id,  function(err, response) {
-   	if (err) {
-      console.log("ERROR! " + err[0].message);
-      if (err[0].message == "You have already retweeted this Tweet.") {
-
-      }
-  	  
-  	} else {
-  	  console.log("retweet");
-  	}
-        })
-        
+        // Retweet the tweets
+        bot.post('statuses/retweet/'+ tweet_id,  function(err, response) {
+         	if (err) {
+            console.log("ERROR! " + err[0].message);
+        	} else {
+        	  console.log("retweet");
+        	}
+      })
       }
     } else {
       console.log(err);
@@ -40,9 +47,4 @@ function get_the_tweets() {
   });
 }
 
-// Every 6 hours
-setInterval(get_the_tweets, 360*60*1000);
-
 get_the_tweets();
-
-

@@ -4,6 +4,12 @@ Texas candidate for U.S. senate Beto O'Rourke is hot and the world needs to know
 
 This Twitter bot is deployed on Heroku. It runs hourly, checks for new tweets talking about how Beto O'Rourke is hot, and retweets/favs them. This is my first Twitter bot! Here's how I did it.
 
+### Assumptions
+* This tutorial is written for a UNIX-based OS 
+* Knowledge of basic command line tools
+* `git v2.5.4`, `node v5.6.0`, and `npm v3.6.0` are installed on your machine
+* Updated March 2018 - some things may change
+
 ### Getting started on Twitter
 
 I create a new Twitter account with a descriptive name (mine is called [@beto_is_hot](https://twitter.com/beto_is_hot)).  
